@@ -2,23 +2,27 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
+void my_strcpy(char* dest, char* source) {
+	while (*source != '\0') {
+		*dest = *source;
+		dest++, source++;
+
+	}
+	//此时指针已经指向了source的\0，而dest的位置指向了dest应当为\0的位置
+	*dest = '\0';//因此这里要补一个
+
+}
 
 int main() {
 
-	int i = 0;
-	int arr[10] = { 0 };
-	for (; i < 10; i++) {
-		arr[i] = i + 1;
-	}
-
-	for (i = 0; i <= 12; i++) {
-		printf("always");
-		arr[i] = 0;
-	}
-
-	system("pause");
-	//研究该程序死循环的原因
-
+	//strcpy
+	//字符串拷贝
+	char str1[] = "accesssss";
+	char str2[] = "cc";
+	my_strcpy(str1, str2);
+	printf("%s\n%s\n", str1, str2);
 
 
 	return NULL;
